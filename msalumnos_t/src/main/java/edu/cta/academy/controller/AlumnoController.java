@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.cta.academy.repository.entity.Alumno;
@@ -55,11 +56,7 @@ public class AlumnoController  {
 	public ResponseEntity<?> insertarAlumno(@Valid @RequestBody Alumno alumno, BindingResult br) {
 		
 		if (br.hasErrors()) {
-			logger.debug("El alumno trae errores");
-			List<ObjectError> listaErrores = br.getAllErrors();
-			listaErrores.forEach(err -> logger.error(err.toString()));
-			
-			return ResponseEntity.badRequest().body(listaErrores);
+			return generateAlumnoError(br);
 			
 		} else {
 			logger.debug("Alumno OK");
@@ -97,14 +94,48 @@ public class AlumnoController  {
 		return response;
 	}
 	
+	@GetMapping("/contienenombre/{name}")		
+	public ResponseEntity<?> listarAlumnosNombre (@PathVariable String name) 
+	{
+		ResponseEntity<?> response = null;
+		Iterable<Alumno> resul = null;
+		
+		resul = service.findByNombreContaining(name);
+		response = ResponseEntity.ok(resul);
+		
+		return response;
+	}
+	
+	@GetMapping("/edades")		
+	public ResponseEntity<?> listarAlumnosEdades(
+			@RequestParam(required = true, name="edadmin") int desde, 
+			@RequestParam(required = true, name="edadmax") int hasta) 
+	{
+		ResponseEntity<?> response = null;
+		Iterable<Alumno> resul = null;
+		
+		resul = service.findByEdadBetween(desde, hasta);
+		response = ResponseEntity.ok(resul);
+		
+		return response;
+	}
+	
+	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> modificarAlumno(@RequestBody Alumno alumno, @PathVariable Long id) {
-		var alumnoModificado = this.service.modificarPorId(alumno, id);
-		if (alumnoModificado.isEmpty()) {
-			return ResponseEntity.notFound().build();
-		} 
-		else {
-			return ResponseEntity.ok(alumnoModificado);
+	public ResponseEntity<?> modificarAlumno(@Valid @RequestBody Alumno alumno, @PathVariable Long id, BindingResult br) {
+		
+		if (br.hasErrors()) {
+			return generateAlumnoError(br);
+			
+		} else {
+			logger.debug ("ALUMNO RX " + alumno);
+			var alumnoModificado = this.service.modificarPorId(alumno, id);
+			if (alumnoModificado.isEmpty()) {
+				return ResponseEntity.notFound().build();
+			} 
+			else {
+				return ResponseEntity.ok(alumnoModificado);
+			}
 		} 	
 	} 
 	
@@ -114,5 +145,18 @@ public class AlumnoController  {
 		// Entidad alumno en estado 'transient' (no está conectado a BBDD)
 		resul = new Alumno((long) 51, "Fereshteh", "Lopez", "fere@oracle.es", 18, LocalDateTime.now());
 		return resul;
+	}
+
+	// Función para devolver un error 400 en caso de fallo de validación de Alumno
+	private ResponseEntity<?> generateAlumnoError(BindingResult br) {
+		
+		ResponseEntity<?> responseEntity = null;
+		
+		logger.debug("El alumno trae fallos");
+		List<ObjectError> listaErrores = br.getAllErrors();
+		listaErrores.forEach( error -> logger.error(error.toString()));
+
+		responseEntity = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(listaErrores);
+		return responseEntity;
 	}
 }

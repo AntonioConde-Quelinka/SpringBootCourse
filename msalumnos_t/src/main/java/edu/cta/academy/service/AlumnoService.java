@@ -20,4 +20,9 @@ public interface AlumnoService {
 	
 	// Consulta (todos)
 	Iterable<Alumno> consultarTodos();
+	
+	// Consulta por rango de edad
+	Iterable<Alumno> findByEdadBetween(int from, int to);
+	
+	Iterable<Alumno> findByNombreContaining(String name);
 }

@@ -58,4 +58,16 @@ public class AlumnoServiceImp implements AlumnoService {
 	public Iterable<Alumno> consultarTodos() {
 		return this.alumnoRepository.findAll();
 	}
+
+	@Override
+	@Transactional(readOnly = true)	
+	public Iterable<Alumno> findByEdadBetween(int from, int to) {
+		return this.alumnoRepository.findByEdadBetween(from, to);
+	}
+	
+	@Override
+	@Transactional(readOnly = true)	
+	public Iterable<Alumno> findByNombreContaining(String name) {
+		return this.alumnoRepository.findByNombreContaining(name);
+	}
 }
