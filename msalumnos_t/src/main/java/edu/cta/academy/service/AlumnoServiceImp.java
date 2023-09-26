@@ -5,12 +5,15 @@ import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestTemplate;
 
 import edu.cta.academy.repository.AlumnoRepository;
 import edu.cta.academy.repository.entity.Alumno;
+import edu.dta.academy.model.FraseChiquito;
 
 /**
  * Implementación de los servicios de la aplicación
@@ -69,6 +72,12 @@ public class AlumnoServiceImp implements AlumnoService {
 	
 	@Override
 	@Transactional(readOnly = true)	
+	public Page<Alumno> findByEdadBetween(int from, int to, Pageable pageable) {
+		return this.alumnoRepository.findByEdadBetween(from, to, pageable);
+	}
+	
+	@Override
+	@Transactional(readOnly = true)	
 	public Iterable<Alumno> findByNombreContaining(String name) {
 		return this.alumnoRepository.findByNombreContaining(name);
 	}
@@ -98,8 +107,23 @@ public class AlumnoServiceImp implements AlumnoService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)	
 	public Iterable<Alumno> findAll(Pageable pageable) {
 		return this.alumnoRepository.findAll(pageable);
+	}
+
+	// No deberíamos hacerlo aqui, sino en un servicio/controller aparte
+	@Override
+	public Optional<FraseChiquito> fraseAleatoriaChiquito() {
+		Optional<FraseChiquito> resul = Optional.empty();
+		RestTemplate request = null;
+		FraseChiquito frase = null;
+		
+		request = new RestTemplate();
+		frase = request.getForObject("https://chiquitadas.es/api/quotes/avoleorrr", FraseChiquito.class);
+		resul = Optional.of(frase);
+		
+		return resul;
 	}
 	
 }

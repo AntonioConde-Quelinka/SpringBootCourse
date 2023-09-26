@@ -2,6 +2,8 @@ package edu.cta.academy.repository;
 
 import java.util.Map;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
@@ -22,6 +24,7 @@ public interface AlumnoRepository extends PagingAndSortingRepository<Alumno, Lon
 	
 	// obtener alumnos por rango de edad
 	Iterable<Alumno> findByEdadBetween(int from, int to);
+	Page<Alumno> findByEdadBetween(int from, int to, Pageable pageable);
 	
 	// obtener alumnos por nombre (que contengan parte del nombre)
 	Iterable<Alumno> findByNombreContaining(String name);

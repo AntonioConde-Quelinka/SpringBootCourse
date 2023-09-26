@@ -121,12 +121,13 @@ public class AlumnoController  {
 	@GetMapping("/edades")		
 	public ResponseEntity<?> listarAlumnosEdades(
 			@RequestParam(required = true, name="edadmin") int desde, 
-			@RequestParam(required = true, name="edadmax") int hasta) 
+			@RequestParam(required = true, name="edadmax") int hasta,
+			Pageable pageable
+			) 
 	{
 		ResponseEntity<?> response = null;
-		Iterable<Alumno> resul = null;
 		
-		resul = service.findByEdadBetween(desde, hasta);
+		var resul = service.findByEdadBetween(desde, hasta, pageable);
 		response = ResponseEntity.ok(resul);
 		
 		return response;
@@ -217,4 +218,21 @@ public class AlumnoController  {
 		responseEntity = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(listaErrores);
 		return responseEntity;
 	}
+	
+	
+	@GetMapping("/chiquito")   // GET http://localhost:8080/alumno/test
+	public ResponseEntity<?> obtenerFraseChiquito() {
+		ResponseEntity<?> responseEntity = null;
+		
+		// TODO: Completar !!
+		var oFrase = this.service.fraseAleatoriaChiquito();
+		if (oFrase.isPresent()) {
+			
+		} else {
+			
+		}
+		
+		return responseEntity;
+	}
+	
 }

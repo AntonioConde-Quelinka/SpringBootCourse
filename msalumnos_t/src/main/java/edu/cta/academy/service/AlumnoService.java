@@ -3,9 +3,11 @@ package edu.cta.academy.service;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import edu.cta.academy.repository.entity.Alumno;
+import edu.dta.academy.model.FraseChiquito;
 
 public interface AlumnoService {
 	
@@ -26,6 +28,7 @@ public interface AlumnoService {
 	
 	// Consulta por rango de edad
 	Iterable<Alumno> findByEdadBetween(int from, int to);
+	Page<Alumno> findByEdadBetween(int from, int to, Pageable pageable);
 	
 	Iterable<Alumno> findByNombreContaining(String name);
 	
@@ -39,4 +42,8 @@ public interface AlumnoService {
 	
 	// Consultas páginadas
 	Iterable<Alumno> findAll(Pageable pageable);
+	
+	
+	// No deberíamos hacerlo aqui, sino en un servicio/controller aparte
+	Optional<FraseChiquito> fraseAleatoriaChiquito();
 }
