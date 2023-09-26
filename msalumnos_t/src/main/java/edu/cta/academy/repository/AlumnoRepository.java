@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 import edu.cta.academy.repository.entity.Alumno;
@@ -13,7 +14,7 @@ import edu.cta.academy.repository.entity.Alumno;
  * Interactua con la DDBB
  */
 @Repository
-public interface AlumnoRepository extends CrudRepository<Alumno, Long> {
+public interface AlumnoRepository extends PagingAndSortingRepository<Alumno, Long> {
 
 	// TODO: Nuevas operaciones de consulta de la BBDD. Ejemplos de...
 	
@@ -22,7 +23,7 @@ public interface AlumnoRepository extends CrudRepository<Alumno, Long> {
 	// obtener alumnos por rango de edad
 	Iterable<Alumno> findByEdadBetween(int from, int to);
 	
-	// TODO: obtener alumnos por nombre (que contengan parte del nombre)
+	// obtener alumnos por nombre (que contengan parte del nombre)
 	Iterable<Alumno> findByNombreContaining(String name);
 	
 	// 2.- JPQL -    -> Similar a Sql. Se emplea el nombre de entidades y propiedades de ellas

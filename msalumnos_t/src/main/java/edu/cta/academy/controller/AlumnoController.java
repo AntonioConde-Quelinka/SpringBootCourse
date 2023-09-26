@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -89,6 +90,17 @@ public class AlumnoController  {
 		Iterable<Alumno> resul = null;
 		
 		resul = service.consultarTodos();
+		response = ResponseEntity.ok(resul);
+		
+		return response;
+	}
+	
+	@GetMapping("/paginados")		// GET http://localhost:8081/alumno/paginados?page=__&size=__
+	public ResponseEntity<?> listarAlumnosPaginado(Pageable pageable) {
+		ResponseEntity<?> response = null;
+		Iterable<Alumno> resul = null;
+		
+		resul = service.findAll(pageable);
 		response = ResponseEntity.ok(resul);
 		
 		return response;

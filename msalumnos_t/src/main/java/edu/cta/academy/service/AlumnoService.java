@@ -3,6 +3,8 @@ package edu.cta.academy.service;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.data.domain.Pageable;
+
 import edu.cta.academy.repository.entity.Alumno;
 
 public interface AlumnoService {
@@ -34,4 +36,7 @@ public interface AlumnoService {
 	Iterable<Alumno> procAlumnosAltaHoy();
 	
 	Map<String, Number> procEstadisticosEdad();
+	
+	// Consultas páginadas
+	Iterable<Alumno> findAll(Pageable pageable);
 }
