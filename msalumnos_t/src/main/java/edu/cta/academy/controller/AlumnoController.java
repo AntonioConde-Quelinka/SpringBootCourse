@@ -120,6 +120,52 @@ public class AlumnoController  {
 		return response;
 	}
 	
+	@GetMapping("/contiene/{pattern}")		
+	public ResponseEntity<?> listarAlumnosContieneEnNombreOApellido (@PathVariable String pattern)
+	{
+		ResponseEntity<?> response = null;
+		Iterable<Alumno> resul = null;
+		
+		resul = service.findInNombreOrApellidoNative(pattern);;
+		response = ResponseEntity.ok(resul);
+		
+		return response;
+	}
+	
+	@GetMapping("/contiene_v2/{pattern}")		
+	public ResponseEntity<?> listarAlumnosContieneEnNombreOApellidoJPQL (@PathVariable String pattern)
+	{
+		ResponseEntity<?> response = null;
+		Iterable<Alumno> resul = null;
+		
+		resul = service.findInNombreOrApellidoJPQL(pattern);;
+		response = ResponseEntity.ok(resul);
+		
+		return response;
+	}
+	
+	@GetMapping("/creados-hoy")		
+	public ResponseEntity<?> listarAlumnosCreadosHoy ()
+	{
+		ResponseEntity<?> response = null;
+		Iterable<Alumno> resul = null;
+		
+		resul = service.procAlumnosAltaHoy();;
+		response = ResponseEntity.ok(resul);
+		
+		return response;
+	}
+	
+	@GetMapping("/edad-stats")		
+	public ResponseEntity<?> estadisticasPorEdad ()
+	{
+		ResponseEntity<?> response = null;
+		
+		var resul = service.procEstadisticosEdad();
+		response = ResponseEntity.ok(resul);
+		
+		return response;
+	}
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<?> modificarAlumno(@Valid @RequestBody Alumno alumno, @PathVariable Long id, BindingResult br) {

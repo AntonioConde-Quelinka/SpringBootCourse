@@ -16,9 +16,31 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import javax.persistence.ParameterMode;
+import javax.persistence.NamedStoredProcedureQueries;
+import javax.persistence.NamedStoredProcedureQuery;
+import javax.persistence.StoredProcedureParameter;
+
 
 @Entity						// -> Clase asociada a BBDD
 @Table(name = "alumnos")	// -> Asociada a la tabla 'alumno'
+@NamedStoredProcedureQueries (
+{
+	@NamedStoredProcedureQuery(
+			name="Alumno.alumnosRegistradosHoy", 
+			procedureName = "obtenerAlumnosRegistradosHoy", 
+			resultClasses = edu.cta.academy.repository.entity.Alumno.class),
+	
+	// Por un BUG en el Driver de MySQL, obliga que los parámetros de salida sean INOUT
+	@NamedStoredProcedureQuery(
+			name="Alumno.alumnosEdadMediaMinMax", 
+			procedureName = "calcular_max_min_media_edad",
+			parameters = {
+				@StoredProcedureParameter(mode = ParameterMode.INOUT , type = Integer.class , name ="edadmax"),
+				@StoredProcedureParameter(mode = ParameterMode.INOUT , type = Integer.class , name ="edadmin"),
+				@StoredProcedureParameter(mode = ParameterMode.INOUT , type = Float.class , name ="edadmedia")
+			})
+})
 public class Alumno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)		// Autonumérico de MySql
@@ -113,6 +135,7 @@ public class Alumno {
 		return "Alumno [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", edad="
 				+ edad + ", creadoEn=" + creadoEn + "]";
 	}
+
 	
 	
 }

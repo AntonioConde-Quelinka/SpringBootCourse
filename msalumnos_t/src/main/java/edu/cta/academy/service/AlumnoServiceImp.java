@@ -1,5 +1,6 @@
 package edu.cta.academy.service;
 
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
@@ -69,5 +70,29 @@ public class AlumnoServiceImp implements AlumnoService {
 	@Transactional(readOnly = true)	
 	public Iterable<Alumno> findByNombreContaining(String name) {
 		return this.alumnoRepository.findByNombreContaining(name);
+	}
+	
+	@Override
+	@Transactional(readOnly = true)	
+	public Iterable<Alumno> findInNombreOrApellidoNative(String pattern) {
+		return this.alumnoRepository.findInNombreOrApellidoNative(pattern);
+	}
+	
+	@Override
+	@Transactional(readOnly = true)	
+	public Iterable<Alumno> findInNombreOrApellidoJPQL(String pattern) {
+		return this.alumnoRepository.findInNombreOrApellidoJQLP(pattern);
+	}
+
+	@Override
+	@Transactional		// En el PA's no va el readonly = true
+	public Iterable<Alumno> procAlumnosAltaHoy() {
+		return this.alumnoRepository.procAlumnosAltaHoy();
+	}
+
+	@Override
+	@Transactional
+	public Map<String, Number> procEstadisticosEdad() {
+		return this.alumnoRepository.procEstadisticosEdad(0, 0, 0f);
 	}
 }

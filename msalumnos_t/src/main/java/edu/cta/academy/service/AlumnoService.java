@@ -1,5 +1,6 @@
 package edu.cta.academy.service;
 
+import java.util.Map;
 import java.util.Optional;
 
 import edu.cta.academy.repository.entity.Alumno;
@@ -25,4 +26,12 @@ public interface AlumnoService {
 	Iterable<Alumno> findByEdadBetween(int from, int to);
 	
 	Iterable<Alumno> findByNombreContaining(String name);
+	
+	Iterable<Alumno> findInNombreOrApellidoNative(String pattern);
+	
+	Iterable<Alumno> findInNombreOrApellidoJPQL(String pattern);
+	
+	Iterable<Alumno> procAlumnosAltaHoy();
+	
+	Map<String, Number> procEstadisticosEdad();
 }
