@@ -227,9 +227,9 @@ public class AlumnoController  {
 		// TODO: Completar !!
 		var oFrase = this.service.fraseAleatoriaChiquito();
 		if (oFrase.isPresent()) {
-			
+			responseEntity = ResponseEntity.ok(oFrase.get());
 		} else {
-			
+			return ResponseEntity.notFound().build();
 		}
 		
 		return responseEntity;
