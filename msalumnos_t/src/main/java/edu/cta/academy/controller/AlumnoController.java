@@ -1,6 +1,7 @@
 package edu.cta.academy.controller;
 
 import java.awt.print.Book;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -11,8 +12,11 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -27,6 +31,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.google.common.net.HttpHeaders;
 
 import edu.cta.academy.repository.entity.Alumno;
 import edu.cta.academy.service.AlumnoService;
@@ -51,6 +58,12 @@ public class AlumnoController  {
 	
 	@Autowired
 	AlumnoService service;
+	
+	@Value("${instancia}")
+	String nombreInstancia;
+	
+	@Autowired
+	Environment enviroment;
 	
 	@Operation(summary = "Crea un nuevo alumno en la BBDD CTA Academy")
 	@ApiResponses(value = {
@@ -94,6 +107,7 @@ public class AlumnoController  {
 		ResponseEntity<?> response = null;
 		Iterable<Alumno> resul = null;
 		
+		logger.debug("ATENCIDO POR " + nombreInstancia + ", PUERTO: " + enviroment.getProperty("local.server.port") );
 		resul = service.consultarTodos();
 		response = ResponseEntity.ok(resul);
 		
@@ -240,4 +254,90 @@ public class AlumnoController  {
 		return responseEntity;
 	}
 	
+	
+	// Gestion de Fotos
+	
+	// 1.- POST con foto
+	@PostMapping("/foto")
+	public ResponseEntity<?> insertarAlumnoFoto(
+			@Valid Alumno alumno, 
+			BindingResult br,
+			MultipartFile archivo) throws Throwable
+	{
+		
+		if (br.hasErrors()) {
+			return generateAlumnoError(br);
+			
+		} else {
+			logger.debug("Alumno OK");
+			
+			if (!archivo.isEmpty()) {
+				logger.debug("Viene con foto");
+				try {
+					alumno.setFoto(archivo.getBytes());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					logger.debug("Error al obtener los bytes de la foto. " + e);
+					throw e;
+				}
+			}
+			
+			var nuevoAlumno = this.service.nuevoAlumno(alumno);
+			return ResponseEntity.status(HttpStatus.CREATED).body(nuevoAlumno);
+		}
+	} 
+	
+	// 2.- PUT con foto
+	@PutMapping("/foto/{id}")
+	public ResponseEntity<?> modificarAlumnoFoto(
+			@Valid Alumno alumno,
+			@PathVariable Long id, 
+			BindingResult br,
+			MultipartFile archivo) throws Throwable {
+		
+		if (br.hasErrors()) {
+			return generateAlumnoError(br);
+			
+		} else {
+			logger.debug ("ALUMNO RX " + alumno);
+			
+			if (!archivo.isEmpty()) {
+				logger.debug("Viene con foto");
+				try {
+					alumno.setFoto(archivo.getBytes());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					logger.debug("Error al obtener los bytes de la foto. " + e);
+					throw e;
+				}
+			}
+			
+			var alumnoModificado = this.service.modificarPorId(alumno, id);
+			if (alumnoModificado.isEmpty()) {
+				return ResponseEntity.notFound().build();
+			} 
+			else {
+				return ResponseEntity.ok(alumnoModificado);
+			}
+		} 	
+	} 
+	
+	// 3.- GET foto por ID
+	@GetMapping("/foto/{id}")   // GET http://localhost:8080/alumno/test
+	public ResponseEntity<?> fotoAlumno(@PathVariable Long id) {
+		ResponseEntity<?> responseEntity = null;
+		
+		var alumno = service.consultaPorId(id);
+		if (alumno.isEmpty() || alumno.get().getFoto().length <= 0) {
+			responseEntity = ResponseEntity.noContent().build();
+		} 
+		else {
+			responseEntity =  ResponseEntity
+				.ok()
+				.contentType(MediaType.IMAGE_JPEG)
+				.body(alumno.get().getFoto());
+		} 
+		
+		return responseEntity;
+	}
 }

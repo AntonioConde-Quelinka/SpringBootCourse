@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -15,6 +16,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.ParameterMode;
 import javax.persistence.NamedStoredProcedureQueries;
@@ -60,6 +63,26 @@ public class Alumno {
 	@Max(120)
 	private int edad;
 	
+	@Lob
+	@JsonIgnore				// Evita que serialice / deserialice autom. Lo haremos a mano
+	private byte[] foto;
+	
+	public String getFotoUri() {
+		String resul = "";
+		if (this.foto != null && this.foto.length > 0) {
+			resul = "http://localhost:8090/api/alumnos/foto/" + id.toString();
+		}
+		return resul;
+	}
+	
+	public byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+
 	@Column(name = "creado_en")			// Mapeo personalizado de campo
 	private LocalDateTime creadoEn;
 	
