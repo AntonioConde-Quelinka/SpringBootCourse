@@ -1,4 +1,4 @@
-package edu.cta.academy.service;
+package edu.cta.academy.alumnos.service;
 
 import java.util.Map;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import edu.cta.academy.repository.entity.Alumno;
+import edu.cta.academy.alumnos.repository.entity.Alumno;
 import edu.dta.academy.model.FraseChiquito;
 
 public interface AlumnoService {

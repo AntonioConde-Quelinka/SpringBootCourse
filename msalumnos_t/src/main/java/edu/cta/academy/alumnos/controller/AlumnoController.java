@@ -1,4 +1,4 @@
-package edu.cta.academy.controller;
+package edu.cta.academy.alumnos.controller;
 
 import java.awt.print.Book;
 import java.io.IOException;
@@ -35,8 +35,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.google.common.net.HttpHeaders;
 
-import edu.cta.academy.repository.entity.Alumno;
-import edu.cta.academy.service.AlumnoService;
+import edu.cta.academy.alumnos.repository.entity.Alumno;
+import edu.cta.academy.alumnos.service.AlumnoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
