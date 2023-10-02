@@ -307,7 +307,7 @@ public class AlumnoController  {
 					alumno.setFoto(archivo.getBytes());
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
-					logger.debug("Error al obtener los bytes de la foto. " + e);
+					logger.error("Error al obteniendo los bytes de la foto para modificar alumno. " + e);
 					throw e;
 				}
 			}
