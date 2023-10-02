@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * Clase que 'escucha' todas las excepciones. Se configura para escuchar las que nos interesen
  */
 
-@RestControllerAdvice(basePackages = {"edu.cta.academy"})
+@RestControllerAdvice(basePackages = {"edu.cta.academy.alumnos"})
 public class GestorExcepciones {
 
 	// Para cada tipo de excepción a gestionar, hacemos un método

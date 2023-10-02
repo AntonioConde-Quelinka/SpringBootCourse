@@ -9,6 +9,6 @@
 		<appender-ref ref="CONSOLE" />
 	</root>
 	<!-- thresold / umbral -->
-	<logger name="edu.cta.academy.alumnos" level="DEBUG"></logger>
+	<logger name="edu.cta.academy.cursos" level="DEBUG"></logger>
 	<!-- <logger name="org.hibernate" level="TRACE"></logger -->
 </configuration>
