@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.cta.academy.comun.entity.Alumno;
 import edu.cta.academy.comun.entity.Curso;
 import edu.cta.academy.cursos.service.ICursoService;
 
@@ -93,6 +94,40 @@ public class CursoController {
 		response = ResponseEntity.ok(resul);
 
 		return response;
+	}
+	
+	// Matricular alumno en curso. 
+	// PUT ya que, conceptualmente, consideramos que estamos 'modificando' un curso
+	@PutMapping("/add-students/{idCurso}")
+	public ResponseEntity<?> addMultipleToCourse(
+			@RequestBody List<Alumno> alumnos, 
+			@PathVariable Long idCurso) 
+	{
+		ResponseEntity<?> resp = null;
+		var courseModified = this.service.addMultipleToCourse(alumnos, idCurso);
+		if (courseModified.isPresent()) {
+			resp = ResponseEntity.ok(courseModified.get());
+		} else {
+			resp = ResponseEntity.notFound().build();
+		}
+		return resp;
+	}
+	
+	// Borrar un alumno de un curso. 
+	// PUT ya que, conceptualmente, consideramos que estamos 'modificando' un curso
+	@PutMapping("/remove-student/{idCurso}")
+	public ResponseEntity<?> removeFromCourse(
+			@RequestBody Alumno alumno, 
+			@PathVariable Long idCurso) 
+	{
+		ResponseEntity<?> resp = null;
+		var courseModified = this.service.removeFromCourse(alumno, idCurso);
+		if (courseModified.isPresent()) {
+			resp = ResponseEntity.ok(courseModified.get());
+		} else {
+			resp = ResponseEntity.notFound().build();
+		}
+		return resp;
 	}
 
 	// Función para devolver un error 400 en caso de fallo de validación de Alumno

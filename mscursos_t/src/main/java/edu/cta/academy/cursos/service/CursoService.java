@@ -1,5 +1,6 @@
 package edu.cta.academy.cursos.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import edu.cta.academy.comun.entity.Alumno;
 import edu.cta.academy.comun.entity.Curso;
 import edu.cta.academy.cursos.repository.CursoRepository;
 
@@ -54,6 +56,26 @@ public class CursoService implements ICursoService {
 	@Transactional(readOnly = true)
 	public Iterable<Curso> findAll() {
 		return repo.findAll();
+	}
+
+	@Override
+	@Transactional
+	public Optional<Curso> addMultipleToCourse(List<Alumno> alumnos, Long idCurso) {
+		var course = this.findById(idCurso);
+		if (course.isPresent()) {
+			course.get().setAlumnos(alumnos);
+		}
+		return course;
+	}
+
+	@Override
+	@Transactional
+	public Optional<Curso> removeFromCourse(Alumno alumno, Long idCurso) {
+		var course = this.findById(idCurso);
+		if (course.isPresent()) {
+			course.get().getAlumnos().remove(alumno);
+		}
+		return course;
 	}
 
 }

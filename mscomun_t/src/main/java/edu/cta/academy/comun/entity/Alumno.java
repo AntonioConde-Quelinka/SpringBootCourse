@@ -1,6 +1,8 @@
 package edu.cta.academy.comun.entity;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,6 +47,29 @@ import javax.persistence.StoredProcedureParameter;
 			})
 })
 public class Alumno {
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(foto);
+		result = prime * result + Objects.hash(apellido, creadoEn, edad, email, id, nombre);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		boolean iguales = false;
+		if (this == obj) {
+			iguales = true;
+			
+		} else if (obj instanceof Alumno a) {	// Pattern-matching -> Si se cumple, hace cast sobre 'a'
+			iguales = this.id.equals(a.id);
+			//iguales = Objects.equals(this.id, a.id);		// Otra forma
+		}
+		
+		return iguales;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)		// Autonumérico de MySql
 	private Long id;
