@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,6 +34,7 @@ public class CursoController {
 	@Autowired
 	ICursoService service;
 	
+	// Alta (nuevo)
 	@PostMapping
 	public ResponseEntity<?> newCourse(@Valid @RequestBody Curso curso, BindingResult br) {
 
@@ -45,6 +47,25 @@ public class CursoController {
 			return ResponseEntity.status(HttpStatus.CREATED).body(nuevoAlumno);
 		}
 	}
+	
+	// Modificación
+	@PutMapping("/{id}")
+	public ResponseEntity<?> modifyCourse(@Valid @RequestBody Curso curso, @PathVariable Long id, BindingResult br) {
+		
+		if (br.hasErrors()) {
+			return generateCursoError(br);
+			
+		} else {
+			logger.debug ("CURSO RX " + curso);
+			var cursoModificado = this.service.modifyById(curso, id);
+			if (cursoModificado.isEmpty()) {
+				return ResponseEntity.notFound().build();
+			} 
+			else {
+				return ResponseEntity.ok(cursoModificado);
+			}
+		} 	
+	}
 
 	// Baja
 	@DeleteMapping("/{id}")
@@ -53,7 +74,7 @@ public class CursoController {
 		return ResponseEntity.status(HttpStatus.OK).build();
 	}
 
-	@GetMapping("/{id}") // GET http://localhost:8081/alumno/{id}
+	@GetMapping("/{id}") 
 	public ResponseEntity<?> findById(@PathVariable long id) {
 		var curso = service.findById(id);
 		if (curso.isEmpty()) {
@@ -63,7 +84,7 @@ public class CursoController {
 		}
 	}
 
-	@GetMapping // GET http://localhost:8081/alumno
+	@GetMapping 
 	public ResponseEntity<?> findAll() {
 		ResponseEntity<?> response = null;
 		Iterable<Curso> resul = null;

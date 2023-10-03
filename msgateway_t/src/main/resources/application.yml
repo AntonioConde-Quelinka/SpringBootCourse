@@ -18,6 +18,12 @@ spring:
           - Path=/api/alumnos/**  
         filters:
           - RewritePath=/api/alumnos/*, /alumno/
+      - id: mscursos             # Nombre del microservicio, tal como está definida en su application.properties 
+        uri: lb://mscursos       
+        predicates:
+          - Path=/api/cursos/**  
+        filters:
+          - RewritePath=/api/cursos/*, /curso/
 server:
   port: 8090
 eureka:
