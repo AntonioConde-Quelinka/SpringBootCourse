@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import edu.cta.academy.comun.entity.Curso;
 import edu.cta.academy.cursos.repository.CursoRepository;
-import edu.cta.academy.cursos.repository.entity.Curso;
 
 @Service
 public class CursoService implements ICursoService {

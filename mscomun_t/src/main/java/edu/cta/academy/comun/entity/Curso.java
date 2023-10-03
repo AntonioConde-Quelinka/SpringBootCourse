@@ -1,4 +1,6 @@
-package edu.cta.academy.cursos.repository.entity;
+package edu.cta.academy.comun.entity;
+
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,4 +28,7 @@ public class Curso {
 	@NotEmpty
 	@NotBlank
 	private String nombre;
+	
+	
+	//private List<Alumno> lista_alumnos;
 }

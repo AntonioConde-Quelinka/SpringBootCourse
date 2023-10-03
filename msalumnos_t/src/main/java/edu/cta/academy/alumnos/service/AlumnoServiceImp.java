@@ -12,7 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 import edu.cta.academy.alumnos.repository.AlumnoRepository;
-import edu.cta.academy.alumnos.repository.entity.Alumno;
+import edu.cta.academy.comun.entity.Alumno;
+//import edu.cta.academy.comun.entity.Alumno;
 import edu.dta.academy.model.FraseChiquito;
 
 /**

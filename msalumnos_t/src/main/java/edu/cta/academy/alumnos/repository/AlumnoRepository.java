@@ -9,7 +9,9 @@ import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
-import edu.cta.academy.alumnos.repository.entity.Alumno;
+import edu.cta.academy.comun.entity.Alumno;
+
+//import edu.cta.academy.comun.entity.Alumno;
 
 /**
  * Interactua con la DDBB

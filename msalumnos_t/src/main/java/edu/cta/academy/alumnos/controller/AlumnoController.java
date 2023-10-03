@@ -35,8 +35,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.google.common.net.HttpHeaders;
 
-import edu.cta.academy.alumnos.repository.entity.Alumno;
 import edu.cta.academy.alumnos.service.AlumnoService;
+import edu.cta.academy.comun.entity.Alumno;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

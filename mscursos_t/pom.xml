@@ -9,7 +9,7 @@
 		<version>2.7.15</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>edu.cta.academy.cursos</groupId>
+	<groupId>edu.cta.academy</groupId>
 	<artifactId>mscursos_t</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mscursos_t</name>
@@ -19,6 +19,12 @@
 		<spring-cloud.version>2021.0.8</spring-cloud.version>
 	</properties>
 	<dependencies>
+		<!-- JAR Comun a los microservicios (libreria de clases) -->
+		<dependency>
+			<groupId>edu.cta.academy</groupId>
+			<artifactId>mscomun_t</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>

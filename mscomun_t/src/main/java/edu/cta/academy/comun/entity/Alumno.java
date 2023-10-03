@@ -1,4 +1,4 @@
-package edu.cta.academy.alumnos.repository.entity;
+package edu.cta.academy.comun.entity;
 
 import java.time.LocalDateTime;
 
@@ -32,7 +32,7 @@ import javax.persistence.StoredProcedureParameter;
 	@NamedStoredProcedureQuery(
 			name="Alumno.alumnosRegistradosHoy", 
 			procedureName = "obtenerAlumnosRegistradosHoy", 
-			resultClasses = edu.cta.academy.alumnos.repository.entity.Alumno.class),
+			resultClasses = edu.cta.academy.comun.entity.Alumno.class),
 	
 	// Por un BUG en el Driver de MySQL, obliga que los parámetros de salida sean INOUT
 	@NamedStoredProcedureQuery(

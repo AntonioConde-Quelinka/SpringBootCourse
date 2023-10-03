@@ -6,7 +6,8 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import edu.cta.academy.alumnos.repository.entity.Alumno;
+import edu.cta.academy.comun.entity.Alumno;
+//import edu.cta.academy.comun.entity.Alumno;
 import edu.dta.academy.model.FraseChiquito;
 
 public interface AlumnoService {
