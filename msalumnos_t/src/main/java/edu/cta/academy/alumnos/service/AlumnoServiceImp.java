@@ -11,8 +11,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
+import edu.cta.academy.alumnos.cliente.ICursoFeignClient;
 import edu.cta.academy.alumnos.repository.AlumnoRepository;
 import edu.cta.academy.comun.entity.Alumno;
+import edu.cta.academy.comun.entity.Curso;
 //import edu.cta.academy.comun.entity.Alumno;
 import edu.dta.academy.model.FraseChiquito;
 
@@ -24,6 +26,9 @@ public class AlumnoServiceImp implements AlumnoService {
 	
 	@Autowired			// Con esto inyectamos instancia creada automáticamente por Spring
 	AlumnoRepository alumnoRepository;
+	
+	@Autowired
+	ICursoFeignClient feignClient;
 
 	@Override
 	@Transactional
@@ -125,6 +130,11 @@ public class AlumnoServiceImp implements AlumnoService {
 		resul = Optional.of(frase);
 		
 		return resul;
+	}
+
+	@Override
+	public Optional<Curso> getCursoAlumno(Long idAlumno) {
+		return feignClient.courseForStudent(idAlumno);
 	}
 	
 }

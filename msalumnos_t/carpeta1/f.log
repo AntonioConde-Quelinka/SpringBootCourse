@@ -1,757 +1,405 @@
-2023-10-03 18:26:08.788  INFO 12204 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 12204 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
-2023-10-03 18:26:08.793 DEBUG 12204 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
-2023-10-03 18:26:08.794  INFO 12204 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
-2023-10-03 18:26:08.855  INFO 12204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-03 18:26:08.855  INFO 12204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-03 18:26:10.079  INFO 12204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-03 18:26:10.255  INFO 12204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 166 ms. Found 1 JPA repository interfaces.
-2023-10-03 18:26:10.528  INFO 12204 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1de62aba-1602-3d72-acac-7b94088d0b07
-2023-10-03 18:26:11.205  INFO 12204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2023-10-03 18:26:11.217  INFO 12204 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-03 18:26:11.218  INFO 12204 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
-2023-10-03 18:26:11.331  INFO 12204 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-03 18:26:11.331  INFO 12204 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2475 ms
-2023-10-03 18:26:11.611  INFO 12204 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-03 18:26:11.669  INFO 12204 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
-2023-10-03 18:26:11.844  INFO 12204 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-10-03 18:26:11.961  INFO 12204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-03 18:26:12.275  INFO 12204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-03 18:26:12.294  INFO 12204 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2023-10-03 18:26:12.594  INFO 12204 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-03 18:26:12.608  INFO 12204 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-03 18:26:12.801  WARN 12204 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoController': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoServiceImp': Unsatisfied dependency expressed through field 'alumnoRepository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'alumnoRepository' defined in edu.cta.academy.alumnos.repository.AlumnoRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Not a managed type: class edu.cta.academy.comun.entity.Alumno
-2023-10-03 18:26:12.801  INFO 12204 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-03 18:26:12.805  INFO 12204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-03 18:26:12.812  INFO 12204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-03 18:26:12.815  INFO 12204 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-10-03 18:26:12.835  INFO 12204 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+2023-10-04 17:15:02.778  INFO 4552 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 4552 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
+2023-10-04 17:15:02.782 DEBUG 4552 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
+2023-10-04 17:15:02.783  INFO 4552 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
+2023-10-04 17:15:02.853  INFO 4552 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-04 17:15:02.854  INFO 4552 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-04 17:15:04.129  INFO 4552 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-04 17:15:04.280  INFO 4552 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 142 ms. Found 1 JPA repository interfaces.
+2023-10-04 17:15:04.558  INFO 4552 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6bac4445-28c8-37ab-a347-6340c332b445
+2023-10-04 17:15:05.223  INFO 4552 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-10-04 17:15:05.233  INFO 4552 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-04 17:15:05.233  INFO 4552 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+2023-10-04 17:15:05.349  INFO 4552 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-04 17:15:05.349  INFO 4552 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2495 ms
+2023-10-04 17:15:05.627  INFO 4552 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-04 17:15:05.684  INFO 4552 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-04 17:15:05.853  INFO 4552 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-04 17:15:05.967  INFO 4552 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-04 17:15:06.272  INFO 4552 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-04 17:15:06.289  INFO 4552 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-04 17:15:07.125  INFO 4552 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-04 17:15:07.137  INFO 4552 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 17:15:07.773  WARN 4552 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-04 17:15:07.934  INFO 4552 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-10-04 17:15:08.560  WARN 4552 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2023-10-04 17:15:08.603  INFO 4552 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-10-04 17:15:08.680  WARN 4552 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-10-04 17:15:08.686  INFO 4552 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 20 endpoint(s) beneath base path '/actuator'
+2023-10-04 17:15:08.814  INFO 4552 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 50093 (http) with context path ''
+2023-10-04 17:15:08.817  INFO 4552 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 50093
+2023-10-04 17:15:08.824  INFO 4552 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-10-04 17:15:08.867  INFO 4552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-10-04 17:15:08.872  INFO 4552 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-10-04 17:15:08.899  INFO 4552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-10-04 17:15:08.899  INFO 4552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-10-04 17:15:08.899  INFO 4552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-10-04 17:15:08.899  INFO 4552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-10-04 17:15:08.899  INFO 4552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-10-04 17:15:08.899  INFO 4552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-10-04 17:15:08.900  INFO 4552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-10-04 17:15:09.190  INFO 4552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-10-04 17:15:09.193  INFO 4552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2023-10-04 17:15:09.195  INFO 4552 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-10-04 17:15:09.200  INFO 4552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1696432509199 with initial instances count: 1
+2023-10-04 17:15:09.202  INFO 4552 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MSALUMNOS with eureka with status UP
+2023-10-04 17:15:09.203  INFO 4552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1696432509203, current=UP, previous=STARTING]
+2023-10-04 17:15:09.204  INFO 4552 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:15f0387503b342d557cea30a4123b150: registering service...
+2023-10-04 17:15:09.250  INFO 4552 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:15f0387503b342d557cea30a4123b150 - registration status: 204
+2023-10-04 17:15:09.258  INFO 4552 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Started MsalumnosTApplication in 7.116 seconds (JVM running for 8.082)
+2023-10-04 17:15:09.956  INFO 4552 --- [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-04 17:15:09.957  INFO 4552 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-04 17:15:09.959  INFO 4552 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-10-04 17:20:08.917  INFO 4552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-10-04 17:25:08.923  INFO 4552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-10-04 17:30:08.948  INFO 4552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-10-04 17:35:08.976  INFO 4552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-10-04 17:40:09.009  INFO 4552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-10-04 17:44:20.719  INFO 4552 --- [RMI TCP Connection(36)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-10-04 17:44:20.720  INFO 4552 --- [RMI TCP Connection(36)-127.0.0.1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MSALUMNOS with eureka with status DOWN
+2023-10-04 17:44:20.720  INFO 4552 --- [RMI TCP Connection(36)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1696434260720, current=DOWN, previous=UP]
+2023-10-04 17:44:20.720  INFO 4552 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:15f0387503b342d557cea30a4123b150: registering service...
+2023-10-04 17:44:20.728  INFO 4552 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:15f0387503b342d557cea30a4123b150 - registration status: 204
+2023-10-04 17:44:20.730  INFO 4552 --- [RMI TCP Connection(36)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-10-04 17:44:20.731  INFO 4552 --- [RMI TCP Connection(36)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-10-04 17:44:20.744  INFO 4552 --- [RMI TCP Connection(36)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 17:44:20.749  INFO 4552 --- [RMI TCP Connection(36)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-04 17:44:20.757  INFO 4552 --- [RMI TCP Connection(36)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-04 17:44:20.758  INFO 4552 --- [RMI TCP Connection(36)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2023-10-04 17:44:23.772  INFO 4552 --- [RMI TCP Connection(36)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2023-10-04 17:44:23.788  INFO 4552 --- [RMI TCP Connection(36)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:15f0387503b342d557cea30a4123b150 - deregister  status: 200
+2023-10-04 17:44:23.794  INFO 4552 --- [RMI TCP Connection(36)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2023-10-04 18:36:06.849  INFO 8756 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 8756 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
+2023-10-04 18:36:06.850 DEBUG 8756 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
+2023-10-04 18:36:06.851  INFO 8756 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
+2023-10-04 18:36:06.911  INFO 8756 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-04 18:36:06.911  INFO 8756 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-04 18:36:08.347  INFO 8756 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-04 18:36:08.539  INFO 8756 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 181 ms. Found 1 JPA repository interfaces.
+2023-10-04 18:36:08.838  INFO 8756 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d6aa8fe7-a460-3e46-b5b9-74243f70dd2f
+2023-10-04 18:36:09.583  INFO 8756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-10-04 18:36:09.598  INFO 8756 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-04 18:36:09.598  INFO 8756 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+2023-10-04 18:36:09.716  INFO 8756 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-04 18:36:09.716  INFO 8756 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2804 ms
+2023-10-04 18:36:10.027  INFO 8756 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-04 18:36:10.090  INFO 8756 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-04 18:36:10.264  INFO 8756 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-04 18:36:10.375  INFO 8756 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-04 18:36:10.685  INFO 8756 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-04 18:36:10.703  INFO 8756 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-04 18:36:11.525  INFO 8756 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-04 18:36:11.536  INFO 8756 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 18:36:11.994  WARN 8756 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoController': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoServiceImp': Unsatisfied dependency expressed through field 'feignClient'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2023-10-04 18:36:11.994  INFO 8756 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 18:36:11.998  INFO 8756 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-04 18:36:12.006  INFO 8756 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-04 18:36:12.009  INFO 8756 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-10-04 18:36:12.030  INFO 8756 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2023-10-03 18:26:12.863 ERROR 12204 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+2023-10-04 18:36:12.060 ERROR 8756 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoController': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoServiceImp': Unsatisfied dependency expressed through field 'alumnoRepository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'alumnoRepository' defined in edu.cta.academy.alumnos.repository.AlumnoRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Not a managed type: class edu.cta.academy.comun.entity.Alumno
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:662)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:642)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:921)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
-	at edu.cta.academy.alumnos.MsalumnosTApplication.main(MsalumnosTApplication.java:12)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoServiceImp': Unsatisfied dependency expressed through field 'alumnoRepository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'alumnoRepository' defined in edu.cta.academy.alumnos.repository.AlumnoRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Not a managed type: class edu.cta.academy.comun.entity.Alumno
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:662)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:642)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:659)
-	... 25 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'alumnoRepository' defined in edu.cta.academy.alumnos.repository.AlumnoRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Not a managed type: class edu.cta.academy.comun.entity.Alumno
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:659)
-	... 39 common frames omitted
-Caused by: java.lang.IllegalArgumentException: Not a managed type: class edu.cta.academy.comun.entity.Alumno
-	at org.hibernate.metamodel.internal.MetamodelImpl.managedType(MetamodelImpl.java:583)
-	at org.hibernate.metamodel.internal.MetamodelImpl.managedType(MetamodelImpl.java:85)
-	at org.springframework.data.jpa.repository.support.JpaMetamodelEntityInformation.<init>(JpaMetamodelEntityInformation.java:75)
-	at org.springframework.data.jpa.repository.support.JpaEntityInformationSupport.getEntityInformation(JpaEntityInformationSupport.java:66)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getEntityInformation(JpaRepositoryFactory.java:233)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:182)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:165)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:76)
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:325)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:323)
-	at org.springframework.data.util.Lazy.getNullable(Lazy.java:231)
-	at org.springframework.data.util.Lazy.get(Lazy.java:115)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:329)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:144)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
-	... 49 common frames omitted
+***************************
+APPLICATION FAILED TO START
+***************************
 
-2023-10-03 18:28:49.651  INFO 5620 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 5620 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
-2023-10-03 18:28:49.652 DEBUG 5620 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
-2023-10-03 18:28:49.653  INFO 5620 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
-2023-10-03 18:28:49.709  INFO 5620 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-03 18:28:49.709  INFO 5620 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-03 18:28:50.885  INFO 5620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-03 18:28:51.038  INFO 5620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 143 ms. Found 1 JPA repository interfaces.
-2023-10-03 18:28:51.308  INFO 5620 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6bac4445-28c8-37ab-a347-6340c332b445
-2023-10-03 18:28:52.015  INFO 5620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2023-10-03 18:28:52.026  INFO 5620 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-03 18:28:52.026  INFO 5620 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
-2023-10-03 18:28:52.151  INFO 5620 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-03 18:28:52.151  INFO 5620 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2441 ms
-2023-10-03 18:28:52.431  INFO 5620 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-03 18:28:52.512  INFO 5620 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
-2023-10-03 18:28:52.689  INFO 5620 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-10-03 18:28:52.810  INFO 5620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-03 18:28:53.145  INFO 5620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-03 18:28:53.163  INFO 5620 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2023-10-03 18:28:53.550 ERROR 5620 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: cursos, for columns: [org.hibernate.mapping.Column(lista_alumnos)]
-2023-10-03 18:28:53.551  WARN 5620 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: cursos, for columns: [org.hibernate.mapping.Column(lista_alumnos)]
-2023-10-03 18:28:53.553  INFO 5620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-03 18:28:53.561  INFO 5620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-03 18:28:53.563  INFO 5620 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-10-03 18:28:53.584  INFO 5620 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+Description:
+
+Field feignClient in edu.cta.academy.alumnos.service.AlumnoServiceImp required a bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' in your configuration.
+
+2023-10-04 18:39:39.167  INFO 3740 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 3740 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
+2023-10-04 18:39:39.168 DEBUG 3740 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
+2023-10-04 18:39:39.168  INFO 3740 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
+2023-10-04 18:39:39.222  INFO 3740 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-04 18:39:39.222  INFO 3740 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-04 18:39:40.410  INFO 3740 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-04 18:39:40.564  INFO 3740 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 143 ms. Found 1 JPA repository interfaces.
+2023-10-04 18:39:40.831  INFO 3740 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d6aa8fe7-a460-3e46-b5b9-74243f70dd2f
+2023-10-04 18:39:41.485  INFO 3740 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-10-04 18:39:41.495  INFO 3740 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-04 18:39:41.496  INFO 3740 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+2023-10-04 18:39:41.616  INFO 3740 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-04 18:39:41.616  INFO 3740 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2393 ms
+2023-10-04 18:39:41.914  INFO 3740 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-04 18:39:41.974  INFO 3740 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-04 18:39:42.145  INFO 3740 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-04 18:39:42.258  INFO 3740 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-04 18:39:42.555  INFO 3740 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-04 18:39:42.573  INFO 3740 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-04 18:39:43.387  INFO 3740 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-04 18:39:43.398  INFO 3740 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 18:39:43.848  WARN 3740 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoController': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoServiceImp': Unsatisfied dependency expressed through field 'feignClient'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2023-10-04 18:39:43.848  INFO 3740 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 18:39:43.852  INFO 3740 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-04 18:39:43.860  INFO 3740 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-04 18:39:43.864  INFO 3740 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-10-04 18:39:43.886  INFO 3740 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2023-10-03 18:28:53.611 ERROR 5620 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+2023-10-04 18:39:43.914 ERROR 3740 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: cursos, for columns: [org.hibernate.mapping.Column(lista_alumnos)]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1157)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
-	at edu.cta.academy.alumnos.MsalumnosTApplication.main(MsalumnosTApplication.java:14)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: cursos, for columns: [org.hibernate.mapping.Column(lista_alumnos)]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
-	... 21 common frames omitted
-Caused by: org.hibernate.MappingException: Could not determine type for: java.util.List, at table: cursos, for columns: [org.hibernate.mapping.Column(lista_alumnos)]
-	at org.hibernate.mapping.SimpleValue.getType(SimpleValue.java:515)
-	at org.hibernate.mapping.SimpleValue.isValid(SimpleValue.java:482)
-	at org.hibernate.mapping.Property.isValid(Property.java:231)
-	at org.hibernate.mapping.PersistentClass.validate(PersistentClass.java:627)
-	at org.hibernate.mapping.RootClass.validate(RootClass.java:267)
-	at org.hibernate.boot.internal.MetadataImpl.validate(MetadataImpl.java:359)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	... 25 common frames omitted
+***************************
+APPLICATION FAILED TO START
+***************************
 
-2023-10-03 18:33:39.208  INFO 7800 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 7800 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
-2023-10-03 18:33:39.209 DEBUG 7800 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
-2023-10-03 18:33:39.210  INFO 7800 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
-2023-10-03 18:33:39.294  INFO 7800 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-03 18:33:39.294  INFO 7800 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-03 18:33:40.595  INFO 7800 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-03 18:33:40.752  INFO 7800 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 146 ms. Found 1 JPA repository interfaces.
-2023-10-03 18:33:41.035  INFO 7800 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6bac4445-28c8-37ab-a347-6340c332b445
-2023-10-03 18:33:41.700  INFO 7800 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2023-10-03 18:33:41.710  INFO 7800 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-03 18:33:41.711  INFO 7800 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
-2023-10-03 18:33:41.824  INFO 7800 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-03 18:33:41.825  INFO 7800 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2530 ms
-2023-10-03 18:33:42.099  INFO 7800 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-03 18:33:42.155  INFO 7800 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
-2023-10-03 18:33:42.331  INFO 7800 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-10-03 18:33:42.444  INFO 7800 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-03 18:33:42.746  INFO 7800 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-03 18:33:42.765  INFO 7800 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2023-10-03 18:33:43.514  INFO 7800 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-03 18:33:43.526  INFO 7800 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-03 18:33:44.139  WARN 7800 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-10-03 18:33:44.301  INFO 7800 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2023-10-03 18:33:44.900  INFO 7800 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-10-03 18:33:44.942  INFO 7800 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2023-10-03 18:33:45.011  WARN 7800 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2023-10-03 18:33:45.021  INFO 7800 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 20 endpoint(s) beneath base path '/actuator'
-2023-10-03 18:33:45.133  INFO 7800 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 50923 (http) with context path ''
-2023-10-03 18:33:45.135  INFO 7800 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 50923
-2023-10-03 18:33:45.140  INFO 7800 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2023-10-03 18:33:45.183  INFO 7800 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2023-10-03 18:33:45.188  INFO 7800 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2023-10-03 18:33:45.215  INFO 7800 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2023-10-03 18:33:45.215  INFO 7800 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2023-10-03 18:33:45.215  INFO 7800 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2023-10-03 18:33:45.215  INFO 7800 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2023-10-03 18:33:45.215  INFO 7800 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2023-10-03 18:33:45.215  INFO 7800 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2023-10-03 18:33:45.216  INFO 7800 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2023-10-03 18:33:45.529  INFO 7800 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2023-10-03 18:33:45.533  INFO 7800 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2023-10-03 18:33:45.535  INFO 7800 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2023-10-03 18:33:45.540  INFO 7800 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1696350825539 with initial instances count: 1
-2023-10-03 18:33:45.543  INFO 7800 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MSALUMNOS with eureka with status UP
-2023-10-03 18:33:45.543  INFO 7800 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1696350825543, current=UP, previous=STARTING]
-2023-10-03 18:33:45.545  INFO 7800 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:19a5598a4a99bbc2e7e1bb0dc34ab4d1: registering service...
-2023-10-03 18:33:45.589  INFO 7800 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:19a5598a4a99bbc2e7e1bb0dc34ab4d1 - registration status: 204
-2023-10-03 18:33:45.595  INFO 7800 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Started MsalumnosTApplication in 7.024 seconds (JVM running for 7.979)
-2023-10-03 18:33:45.930  INFO 7800 --- [RMI TCP Connection(5)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-03 18:33:45.930  INFO 7800 --- [RMI TCP Connection(5)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-10-03 18:33:45.931  INFO 7800 --- [RMI TCP Connection(5)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-10-03 18:35:32.182  INFO 7800 --- [RMI TCP Connection(8)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2023-10-03 18:35:32.183  INFO 7800 --- [RMI TCP Connection(8)-127.0.0.1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MSALUMNOS with eureka with status DOWN
-2023-10-03 18:35:32.183  INFO 7800 --- [RMI TCP Connection(8)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1696350932183, current=DOWN, previous=UP]
-2023-10-03 18:35:32.184  INFO 7800 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:19a5598a4a99bbc2e7e1bb0dc34ab4d1: registering service...
-2023-10-03 18:35:32.200  INFO 7800 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on POST request for "http://localhost:8761/eureka/apps/MSALUMNOS": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/MSALUMNOS": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:791)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:717)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:608)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.register(RestTemplateEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:876)
-	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
-	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
-	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:87)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:782)
-	... 21 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.base/sun.nio.ch.Net.connect0(Native Method)
-	at java.base/sun.nio.ch.Net.connect(Net.java:579)
-	at java.base/sun.nio.ch.Net.connect(Net.java:568)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:593)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:633)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
-	... 34 more
+Description:
 
-2023-10-03 18:35:32.201  WARN 7800 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/MSALUMNOS": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
-2023-10-03 18:35:32.217  INFO 7800 --- [RMI TCP Connection(8)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-10-03 18:35:32.218  INFO 7800 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/MSALUMNOS": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/MSALUMNOS": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:791)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:717)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:608)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.register(RestTemplateEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:876)
-	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
-	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
-	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:87)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:782)
-	... 22 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.base/sun.nio.ch.Net.connect0(Native Method)
-	at java.base/sun.nio.ch.Net.connect(Net.java:579)
-	at java.base/sun.nio.ch.Net.connect(Net.java:568)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:593)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:633)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
-	... 35 more
+Field feignClient in edu.cta.academy.alumnos.service.AlumnoServiceImp required a bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' that could not be found.
 
-2023-10-03 18:35:32.219  WARN 7800 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/MSALUMNOS": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
-2023-10-03 18:35:32.222  INFO 7800 --- [RMI TCP Connection(8)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2023-10-03 18:35:32.225  WARN 7800 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:19a5598a4a99bbc2e7e1bb0dc34ab4d1 - registration failed Cannot execute request on any known server
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
 
-com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:876)
-	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
-	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
 
-2023-10-03 18:35:32.226  WARN 7800 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+Action:
 
-com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:876)
-	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
-	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
+Consider defining a bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' in your configuration.
 
-2023-10-03 18:35:32.239  INFO 7800 --- [RMI TCP Connection(8)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-03 18:35:32.247  INFO 7800 --- [RMI TCP Connection(8)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-03 18:35:32.256  INFO 7800 --- [RMI TCP Connection(8)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-03 18:35:32.257  INFO 7800 --- [RMI TCP Connection(8)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
-2023-10-03 18:35:35.261  INFO 7800 --- [RMI TCP Connection(8)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
-2023-10-03 18:35:35.271  INFO 7800 --- [RMI TCP Connection(8)-127.0.0.1] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/MSALUMNOS/msalumnos:19a5598a4a99bbc2e7e1bb0dc34ab4d1": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/MSALUMNOS/msalumnos:19a5598a4a99bbc2e7e1bb0dc34ab4d1": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:791)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:717)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:608)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:87)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:972)
-	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:948)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:347)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:177)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:197)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:190)
-	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:390)
-	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:213)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1163)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1156)
-	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1109)
-	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1078)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
-	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1024)
-	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown(SpringApplicationAdminMXBeanRegistrar.java:160)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:72)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:262)
-	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:193)
-	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:175)
-	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:117)
-	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:54)
-	at java.management/com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(MBeanIntrospector.java:237)
-	at java.management/com.sun.jmx.mbeanserver.PerInterface.invoke(PerInterface.java:138)
-	at java.management/com.sun.jmx.mbeanserver.MBeanSupport.invoke(MBeanSupport.java:252)
-	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:814)
-	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
-	at java.base/jdk.internal.reflect.GeneratedMethodAccessor60.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
-	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:587)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:828)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:705)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:704)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:156)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
-	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:87)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:782)
-	... 76 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.base/sun.nio.ch.Net.connect0(Native Method)
-	at java.base/sun.nio.ch.Net.connect(Net.java:579)
-	at java.base/sun.nio.ch.Net.connect(Net.java:568)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:593)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:633)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
-	... 89 more
+2023-10-04 18:41:28.294  INFO 1664 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 1664 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
+2023-10-04 18:41:28.295 DEBUG 1664 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
+2023-10-04 18:41:28.296  INFO 1664 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
+2023-10-04 18:41:28.358  INFO 1664 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-04 18:41:28.358  INFO 1664 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-04 18:41:29.548  INFO 1664 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-04 18:41:29.702  INFO 1664 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 145 ms. Found 1 JPA repository interfaces.
+2023-10-04 18:41:29.985  INFO 1664 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d6aa8fe7-a460-3e46-b5b9-74243f70dd2f
+2023-10-04 18:41:30.678  INFO 1664 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-10-04 18:41:30.688  INFO 1664 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-04 18:41:30.688  INFO 1664 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+2023-10-04 18:41:30.808  INFO 1664 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-04 18:41:30.808  INFO 1664 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2449 ms
+2023-10-04 18:41:31.103  INFO 1664 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-04 18:41:31.160  INFO 1664 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-04 18:41:31.337  INFO 1664 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-04 18:41:31.453  INFO 1664 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-04 18:41:31.769  INFO 1664 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-04 18:41:31.787  INFO 1664 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-04 18:41:32.610  INFO 1664 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-04 18:41:32.623  INFO 1664 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 18:41:33.081  WARN 1664 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoController': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoServiceImp': Unsatisfied dependency expressed through field 'feignClient'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2023-10-04 18:41:33.081  INFO 1664 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 18:41:33.085  INFO 1664 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-04 18:41:33.092  INFO 1664 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-04 18:41:33.094  INFO 1664 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-10-04 18:41:33.117  INFO 1664 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
 
-2023-10-03 18:35:35.271  WARN 7800 --- [RMI TCP Connection(8)-127.0.0.1] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/MSALUMNOS/msalumnos:19a5598a4a99bbc2e7e1bb0dc34ab4d1": Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect; nested exception is org.apache.http.conn.HttpHostConnectException: Connect to localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
-2023-10-03 18:35:35.271 ERROR 7800 --- [RMI TCP Connection(8)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:19a5598a4a99bbc2e7e1bb0dc34ab4d1 - de-registration failedCannot execute request on any known server
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-10-04 18:41:33.146 ERROR 1664 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
-com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:972)
-	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:948)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:347)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:177)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:197)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:190)
-	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:390)
-	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:213)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1163)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1156)
-	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1109)
-	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1078)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
-	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1024)
-	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown(SpringApplicationAdminMXBeanRegistrar.java:160)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:72)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:262)
-	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:193)
-	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:175)
-	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:117)
-	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:54)
-	at java.management/com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(MBeanIntrospector.java:237)
-	at java.management/com.sun.jmx.mbeanserver.PerInterface.invoke(PerInterface.java:138)
-	at java.management/com.sun.jmx.mbeanserver.MBeanSupport.invoke(MBeanSupport.java:252)
-	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:814)
-	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
-	at java.base/jdk.internal.reflect.GeneratedMethodAccessor60.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
-	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:587)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:828)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:705)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:704)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
+***************************
+APPLICATION FAILED TO START
+***************************
 
-2023-10-03 18:35:35.280  INFO 7800 --- [RMI TCP Connection(8)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
-2023-10-03 18:43:01.461  INFO 5300 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 5300 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
-2023-10-03 18:43:01.462 DEBUG 5300 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
-2023-10-03 18:43:01.462  INFO 5300 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
-2023-10-03 18:43:01.522  INFO 5300 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-03 18:43:01.522  INFO 5300 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-03 18:43:02.690  INFO 5300 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-03 18:43:02.841  INFO 5300 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 142 ms. Found 1 JPA repository interfaces.
-2023-10-03 18:43:03.112  INFO 5300 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6bac4445-28c8-37ab-a347-6340c332b445
-2023-10-03 18:43:03.791  INFO 5300 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2023-10-03 18:43:03.801  INFO 5300 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-03 18:43:03.801  INFO 5300 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
-2023-10-03 18:43:03.917  INFO 5300 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-03 18:43:03.918  INFO 5300 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2396 ms
-2023-10-03 18:43:04.210  INFO 5300 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-03 18:43:04.270  INFO 5300 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
-2023-10-03 18:43:04.443  INFO 5300 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-10-03 18:43:04.560  INFO 5300 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-03 18:43:04.878  INFO 5300 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-03 18:43:04.897  INFO 5300 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2023-10-03 18:43:05.644  INFO 5300 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-03 18:43:05.656  INFO 5300 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-03 18:43:06.269  WARN 5300 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-10-03 18:43:06.425  INFO 5300 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2023-10-03 18:43:07.049  INFO 5300 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-10-03 18:43:07.098  INFO 5300 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2023-10-03 18:43:07.165  WARN 5300 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2023-10-03 18:43:07.170  INFO 5300 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 20 endpoint(s) beneath base path '/actuator'
-2023-10-03 18:43:07.273  INFO 5300 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 51093 (http) with context path ''
-2023-10-03 18:43:07.275  INFO 5300 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 51093
-2023-10-03 18:43:07.281  INFO 5300 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2023-10-03 18:43:07.323  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2023-10-03 18:43:07.328  INFO 5300 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2023-10-03 18:43:07.354  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2023-10-03 18:43:07.354  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2023-10-03 18:43:07.354  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2023-10-03 18:43:07.354  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2023-10-03 18:43:07.354  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2023-10-03 18:43:07.354  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2023-10-03 18:43:07.355  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2023-10-03 18:43:07.676  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2023-10-03 18:43:07.680  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2023-10-03 18:43:07.682  INFO 5300 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2023-10-03 18:43:07.688  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1696351387687 with initial instances count: 1
-2023-10-03 18:43:07.690  INFO 5300 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MSALUMNOS with eureka with status UP
-2023-10-03 18:43:07.691  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1696351387690, current=UP, previous=STARTING]
-2023-10-03 18:43:07.692  INFO 5300 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:019c794cc5ee12b3fa3796bc9f908dd1: registering service...
-2023-10-03 18:43:07.735  INFO 5300 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:019c794cc5ee12b3fa3796bc9f908dd1 - registration status: 204
-2023-10-03 18:43:07.744  INFO 5300 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Started MsalumnosTApplication in 6.844 seconds (JVM running for 7.727)
-2023-10-03 18:43:07.907  INFO 5300 --- [RMI TCP Connection(5)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-03 18:43:07.908  INFO 5300 --- [RMI TCP Connection(5)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-10-03 18:43:07.909  INFO 5300 --- [RMI TCP Connection(5)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-10-03 18:45:57.736 DEBUG 5300 --- [http-nio-auto-1-exec-1] e.c.a.a.controller.AlumnoController      : ATENCIDO POR instancia-0, PUERTO: 51093
-2023-10-03 18:46:09.733  INFO 5300 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)
-2023-10-03 18:46:09.737  INFO 5300 --- [Thread-7] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MSALUMNOS with eureka with status DOWN
-2023-10-03 18:46:09.738  INFO 5300 --- [Thread-7] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1696351569738, current=DOWN, previous=UP]
-2023-10-03 18:46:09.738  INFO 5300 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:019c794cc5ee12b3fa3796bc9f908dd1: registering service...
-2023-10-03 18:46:09.748  INFO 5300 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:019c794cc5ee12b3fa3796bc9f908dd1 - registration status: 204
-2023-10-03 18:46:09.754  INFO 5300 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-10-03 18:46:09.757  INFO 5300 --- [Thread-7] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2023-10-03 18:46:09.771  INFO 5300 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-03 18:46:09.777  INFO 5300 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-03 18:46:09.787  INFO 5300 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-03 18:46:09.788  INFO 5300 --- [Thread-7] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
-2023-10-03 18:46:12.805  INFO 5300 --- [Thread-7] com.netflix.discovery.DiscoveryClient    : Unregistering ...
-2023-10-03 18:46:12.825  INFO 5300 --- [Thread-7] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:019c794cc5ee12b3fa3796bc9f908dd1 - deregister  status: 200
-2023-10-03 18:46:12.836  INFO 5300 --- [Thread-7] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
-2023-10-03 18:46:13.023  INFO 5300 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 5300 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
-2023-10-03 18:46:13.024 DEBUG 5300 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
-2023-10-03 18:46:13.024  INFO 5300 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
-2023-10-03 18:46:13.456  INFO 5300 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-03 18:46:13.464  INFO 5300 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 1 JPA repository interfaces.
-2023-10-03 18:46:13.567  INFO 5300 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6bac4445-28c8-37ab-a347-6340c332b445
-2023-10-03 18:46:13.650  INFO 5300 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2023-10-03 18:46:13.651  INFO 5300 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-03 18:46:13.651  INFO 5300 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
-2023-10-03 18:46:13.682  INFO 5300 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-03 18:46:13.682  INFO 5300 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 655 ms
-2023-10-03 18:46:13.758  INFO 5300 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-03 18:46:13.765  INFO 5300 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2023-10-03 18:46:13.778  INFO 5300 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2023-10-03 18:46:13.779  INFO 5300 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2023-10-03 18:46:13.830  INFO 5300 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-03 18:46:13.830  INFO 5300 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-03 18:46:13.949  WARN 5300 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-10-03 18:46:14.002  INFO 5300 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2023-10-03 18:46:14.232  INFO 5300 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-10-03 18:46:14.264  INFO 5300 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2023-10-03 18:46:14.290  WARN 5300 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2023-10-03 18:46:14.295  INFO 5300 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 20 endpoint(s) beneath base path '/actuator'
-2023-10-03 18:46:14.336  INFO 5300 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 51168 (http) with context path ''
-2023-10-03 18:46:14.336  INFO 5300 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 51168
-2023-10-03 18:46:14.337  INFO 5300 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2023-10-03 18:46:14.341  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2023-10-03 18:46:14.342  INFO 5300 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2023-10-03 18:46:14.352  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2023-10-03 18:46:14.353  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2023-10-03 18:46:14.353  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2023-10-03 18:46:14.353  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2023-10-03 18:46:14.353  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2023-10-03 18:46:14.353  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2023-10-03 18:46:14.353  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2023-10-03 18:46:14.380  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2023-10-03 18:46:14.381  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2023-10-03 18:46:14.382  INFO 5300 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2023-10-03 18:46:14.383  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1696351574383 with initial instances count: 3
-2023-10-03 18:46:14.384  INFO 5300 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MSALUMNOS with eureka with status UP
-2023-10-03 18:46:14.384  INFO 5300 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1696351574384, current=UP, previous=STARTING]
-2023-10-03 18:46:14.385  INFO 5300 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:ff6c53a667ce91caa6557f9c7d03ca23: registering service...
-2023-10-03 18:46:14.396  INFO 5300 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:ff6c53a667ce91caa6557f9c7d03ca23 - registration status: 204
-2023-10-03 18:46:14.421  INFO 5300 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Started MsalumnosTApplication in 1.495 seconds (JVM running for 194.4)
-2023-10-03 18:46:14.425  INFO 5300 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2023-10-03 18:51:14.373  INFO 5300 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2023-10-03 18:56:14.387  INFO 5300 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2023-10-03 19:01:14.395  INFO 5300 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2023-10-03 19:06:14.412  INFO 5300 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2023-10-03 19:11:14.425  INFO 5300 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2023-10-03 19:16:14.432  INFO 5300 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2023-10-03 19:17:30.211  INFO 5300 --- [RMI TCP Connection(44)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2023-10-03 19:17:30.213  INFO 5300 --- [RMI TCP Connection(44)-127.0.0.1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MSALUMNOS with eureka with status DOWN
-2023-10-03 19:17:30.213  INFO 5300 --- [RMI TCP Connection(44)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1696353450213, current=DOWN, previous=UP]
-2023-10-03 19:17:30.213  INFO 5300 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:ff6c53a667ce91caa6557f9c7d03ca23: registering service...
-2023-10-03 19:17:30.221  INFO 5300 --- [RMI TCP Connection(44)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-10-03 19:17:30.227  INFO 5300 --- [RMI TCP Connection(44)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-03 19:17:30.228  INFO 5300 --- [RMI TCP Connection(44)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2023-10-03 19:17:30.232  INFO 5300 --- [RMI TCP Connection(44)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2023-10-03 19:17:30.233  INFO 5300 --- [RMI TCP Connection(44)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
-2023-10-03 19:17:30.236  INFO 5300 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:ff6c53a667ce91caa6557f9c7d03ca23 - registration status: 204
-2023-10-03 19:17:30.238  INFO 5300 --- [RMI TCP Connection(44)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
-2023-10-03 19:17:30.241  INFO 5300 --- [RMI TCP Connection(44)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:ff6c53a667ce91caa6557f9c7d03ca23 - deregister  status: 200
-2023-10-03 19:17:30.245  INFO 5300 --- [RMI TCP Connection(44)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
-2023-10-03 19:56:46.604  INFO 10092 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 10092 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
-2023-10-03 19:56:46.605 DEBUG 10092 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
-2023-10-03 19:56:46.605  INFO 10092 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
-2023-10-03 19:56:46.659  INFO 10092 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-03 19:56:46.660  INFO 10092 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-03 19:56:47.875  INFO 10092 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-03 19:56:48.031  INFO 10092 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 146 ms. Found 1 JPA repository interfaces.
-2023-10-03 19:56:48.289  INFO 10092 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6bac4445-28c8-37ab-a347-6340c332b445
-2023-10-03 19:56:48.949  INFO 10092 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2023-10-03 19:56:48.959  INFO 10092 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-03 19:56:48.959  INFO 10092 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
-2023-10-03 19:56:49.067  INFO 10092 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-03 19:56:49.068  INFO 10092 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2408 ms
-2023-10-03 19:56:49.342  INFO 10092 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-03 19:56:49.398  INFO 10092 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
-2023-10-03 19:56:49.569  INFO 10092 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-10-03 19:56:49.688  INFO 10092 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-03 19:56:49.993  INFO 10092 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-03 19:56:50.012  INFO 10092 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2023-10-03 19:56:50.867  INFO 10092 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-03 19:56:50.879  INFO 10092 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-03 19:56:51.517  WARN 10092 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-10-03 19:56:51.670  INFO 10092 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2023-10-03 19:56:52.292  WARN 10092 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2023-10-03 19:56:52.336  INFO 10092 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2023-10-03 19:56:52.401  WARN 10092 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2023-10-03 19:56:52.406  INFO 10092 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 20 endpoint(s) beneath base path '/actuator'
-2023-10-03 19:56:52.520  INFO 10092 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 51860 (http) with context path ''
-2023-10-03 19:56:52.522  INFO 10092 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 51860
-2023-10-03 19:56:52.527  INFO 10092 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2023-10-03 19:56:52.570  INFO 10092 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2023-10-03 19:56:52.575  INFO 10092 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2023-10-03 19:56:52.602  INFO 10092 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2023-10-03 19:56:52.603  INFO 10092 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2023-10-03 19:56:52.603  INFO 10092 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2023-10-03 19:56:52.603  INFO 10092 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2023-10-03 19:56:52.603  INFO 10092 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2023-10-03 19:56:52.603  INFO 10092 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2023-10-03 19:56:52.603  INFO 10092 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2023-10-03 19:56:52.929  INFO 10092 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2023-10-03 19:56:52.932  INFO 10092 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2023-10-03 19:56:52.935  INFO 10092 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2023-10-03 19:56:52.941  INFO 10092 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1696355812940 with initial instances count: 2
-2023-10-03 19:56:52.943  INFO 10092 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MSALUMNOS with eureka with status UP
-2023-10-03 19:56:52.944  INFO 10092 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1696355812944, current=UP, previous=STARTING]
-2023-10-03 19:56:52.946  INFO 10092 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:aa5f02d5cb88ee58219dbd02d3220997: registering service...
-2023-10-03 19:56:52.993  INFO 10092 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:aa5f02d5cb88ee58219dbd02d3220997 - registration status: 204
-2023-10-03 19:56:53.001  INFO 10092 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Started MsalumnosTApplication in 6.957 seconds (JVM running for 7.793)
-2023-10-03 19:56:53.571  INFO 10092 --- [RMI TCP Connection(5)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-03 19:56:53.571  INFO 10092 --- [RMI TCP Connection(5)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-10-03 19:56:53.573  INFO 10092 --- [RMI TCP Connection(5)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2023-10-03 19:57:25.755 DEBUG 10092 --- [http-nio-auto-1-exec-1] e.c.a.a.controller.AlumnoController      : ATENCIDO POR instancia-0, PUERTO: 51860
-2023-10-03 20:00:20.038  INFO 10092 --- [RMI TCP Connection(10)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2023-10-03 20:00:20.039  INFO 10092 --- [RMI TCP Connection(10)-127.0.0.1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MSALUMNOS with eureka with status DOWN
-2023-10-03 20:00:20.039  INFO 10092 --- [RMI TCP Connection(10)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1696356020039, current=DOWN, previous=UP]
-2023-10-03 20:00:20.039  INFO 10092 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:aa5f02d5cb88ee58219dbd02d3220997: registering service...
-2023-10-03 20:00:20.047  INFO 10092 --- [RMI TCP Connection(10)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-10-03 20:00:20.049  INFO 10092 --- [RMI TCP Connection(10)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2023-10-03 20:00:20.066  INFO 10092 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:aa5f02d5cb88ee58219dbd02d3220997 - registration status: 204
-2023-10-03 20:00:20.071  INFO 10092 --- [RMI TCP Connection(10)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-03 20:00:20.076  INFO 10092 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-10-03 20:00:20.083  INFO 10092 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-10-03 20:00:20.084  INFO 10092 --- [RMI TCP Connection(10)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
-2023-10-03 20:00:23.090  INFO 10092 --- [RMI TCP Connection(10)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
-2023-10-03 20:00:23.107  INFO 10092 --- [RMI TCP Connection(10)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:aa5f02d5cb88ee58219dbd02d3220997 - deregister  status: 200
-2023-10-03 20:00:23.113  INFO 10092 --- [RMI TCP Connection(10)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+Description:
+
+Field feignClient in edu.cta.academy.alumnos.service.AlumnoServiceImp required a bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' in your configuration.
+
+2023-10-04 18:42:10.206  INFO 2436 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 2436 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
+2023-10-04 18:42:10.207 DEBUG 2436 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
+2023-10-04 18:42:10.208  INFO 2436 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
+2023-10-04 18:42:10.267  INFO 2436 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-04 18:42:10.267  INFO 2436 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-04 18:42:11.479  INFO 2436 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-04 18:42:11.634  INFO 2436 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 145 ms. Found 1 JPA repository interfaces.
+2023-10-04 18:42:11.937  INFO 2436 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d6aa8fe7-a460-3e46-b5b9-74243f70dd2f
+2023-10-04 18:42:12.640  INFO 2436 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-10-04 18:42:12.651  INFO 2436 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-04 18:42:12.651  INFO 2436 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+2023-10-04 18:42:12.774  INFO 2436 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-04 18:42:12.774  INFO 2436 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2506 ms
+2023-10-04 18:42:13.072  INFO 2436 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-04 18:42:13.131  INFO 2436 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-04 18:42:13.306  INFO 2436 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-04 18:42:13.420  INFO 2436 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-04 18:42:13.761  INFO 2436 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-04 18:42:13.780  INFO 2436 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-04 18:42:14.640  INFO 2436 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-04 18:42:14.652  INFO 2436 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 18:42:15.143  WARN 2436 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoController': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoServiceImp': Unsatisfied dependency expressed through field 'feignClient'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2023-10-04 18:42:15.144  INFO 2436 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 18:42:15.148  INFO 2436 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-04 18:42:15.156  INFO 2436 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-04 18:42:15.158  INFO 2436 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-10-04 18:42:15.179  INFO 2436 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-10-04 18:42:15.207 ERROR 2436 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field feignClient in edu.cta.academy.alumnos.service.AlumnoServiceImp required a bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' in your configuration.
+
+2023-10-04 18:44:05.860  INFO 4576 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 4576 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
+2023-10-04 18:44:05.861 DEBUG 4576 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
+2023-10-04 18:44:05.862  INFO 4576 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
+2023-10-04 18:44:05.918  INFO 4576 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-04 18:44:05.919  INFO 4576 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-04 18:44:07.174  INFO 4576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-04 18:44:07.327  INFO 4576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 142 ms. Found 1 JPA repository interfaces.
+2023-10-04 18:44:07.608  INFO 4576 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d6aa8fe7-a460-3e46-b5b9-74243f70dd2f
+2023-10-04 18:44:08.275  INFO 4576 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-10-04 18:44:08.285  INFO 4576 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-04 18:44:08.285  INFO 4576 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+2023-10-04 18:44:08.402  INFO 4576 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-04 18:44:08.403  INFO 4576 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2484 ms
+2023-10-04 18:44:08.677  INFO 4576 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-04 18:44:08.733  INFO 4576 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-04 18:44:08.901  INFO 4576 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-04 18:44:09.015  INFO 4576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-04 18:44:09.315  INFO 4576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-04 18:44:09.333  INFO 4576 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-04 18:44:10.173  INFO 4576 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-04 18:44:10.184  INFO 4576 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 18:44:10.637  WARN 4576 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoController': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoServiceImp': Unsatisfied dependency expressed through field 'feignClient'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2023-10-04 18:44:10.638  INFO 4576 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 18:44:10.641  INFO 4576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-04 18:44:10.648  INFO 4576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-04 18:44:10.651  INFO 4576 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-10-04 18:44:10.672  INFO 4576 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-10-04 18:44:10.700 ERROR 4576 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field feignClient in edu.cta.academy.alumnos.service.AlumnoServiceImp required a bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' in your configuration.
+
+2023-10-04 18:45:46.108  INFO 8888 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 8888 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
+2023-10-04 18:45:46.109 DEBUG 8888 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
+2023-10-04 18:45:46.110  INFO 8888 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
+2023-10-04 18:45:46.180  INFO 8888 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-04 18:45:46.180  INFO 8888 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-04 18:45:47.535  INFO 8888 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-04 18:45:47.715  INFO 8888 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 169 ms. Found 1 JPA repository interfaces.
+2023-10-04 18:45:48.042  INFO 8888 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d6aa8fe7-a460-3e46-b5b9-74243f70dd2f
+2023-10-04 18:45:48.755  INFO 8888 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-10-04 18:45:48.768  INFO 8888 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-04 18:45:48.769  INFO 8888 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+2023-10-04 18:45:48.894  INFO 8888 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-04 18:45:48.894  INFO 8888 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2713 ms
+2023-10-04 18:45:49.218  INFO 8888 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-04 18:45:49.279  INFO 8888 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-04 18:45:49.470  INFO 8888 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-04 18:45:49.599  INFO 8888 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-04 18:45:49.944  INFO 8888 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-04 18:45:49.967  INFO 8888 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-04 18:45:50.877  INFO 8888 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-04 18:45:50.890  INFO 8888 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 18:45:51.400  WARN 8888 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoController': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alumnoServiceImp': Unsatisfied dependency expressed through field 'feignClient'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2023-10-04 18:45:51.401  INFO 8888 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 18:45:51.405  INFO 8888 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-10-04 18:45:51.414  INFO 8888 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-10-04 18:45:51.417  INFO 8888 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-10-04 18:45:51.442  INFO 8888 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-10-04 18:45:51.476 ERROR 8888 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field feignClient in edu.cta.academy.alumnos.service.AlumnoServiceImp required a bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'edu.cta.academy.alumnos.cliente.ICursoFeignClient' in your configuration.
+
+2023-10-04 18:50:00.651  INFO 8756 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Starting MsalumnosTApplication using Java 17.0.8.1 on Aula515 with PID 8756 (C:\Users\CTA\SpringBootCourse\msalumnos_t\target\classes started by CTA in C:\Users\CTA\SpringBootCourse\msalumnos_t)
+2023-10-04 18:50:00.653 DEBUG 8756 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Running with Spring Boot v2.7.15, Spring v5.3.29
+2023-10-04 18:50:00.653  INFO 8756 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : No active profile set, falling back to 1 default profile: "default"
+2023-10-04 18:50:00.717  INFO 8756 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-04 18:50:00.717  INFO 8756 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-04 18:50:02.026  INFO 8756 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-04 18:50:02.187  INFO 8756 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 152 ms. Found 1 JPA repository interfaces.
+2023-10-04 18:50:02.481  INFO 8756 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=0eea355a-5cd7-3eee-ac44-4b96858ce621
+2023-10-04 18:50:03.172  INFO 8756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-10-04 18:50:03.183  INFO 8756 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-04 18:50:03.183  INFO 8756 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.79]
+2023-10-04 18:50:03.302  INFO 8756 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-04 18:50:03.303  INFO 8756 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2585 ms
+2023-10-04 18:50:03.590  INFO 8756 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-04 18:50:03.648  INFO 8756 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-04 18:50:03.827  INFO 8756 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-04 18:50:03.944  INFO 8756 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-04 18:50:04.259  INFO 8756 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-04 18:50:04.281  INFO 8756 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-04 18:50:05.167  INFO 8756 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-04 18:50:05.178  INFO 8756 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-04 18:50:05.843  WARN 8756 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-04 18:50:05.894  WARN 8756 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2023-10-04 18:50:05.957  INFO 8756 --- [restartedMain] o.s.c.openfeign.FeignClientFactoryBean   : For 'mscursos' URL not provided. Will try picking an instance via load-balancing.
+2023-10-04 18:50:06.203  INFO 8756 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-10-04 18:50:06.847  INFO 8756 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-10-04 18:50:06.897  WARN 8756 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-10-04 18:50:06.907  INFO 8756 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 20 endpoint(s) beneath base path '/actuator'
+2023-10-04 18:50:07.014  INFO 8756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 51217 (http) with context path ''
+2023-10-04 18:50:07.016  INFO 8756 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 51217
+2023-10-04 18:50:07.022  INFO 8756 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-10-04 18:50:07.067  INFO 8756 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-10-04 18:50:07.074  INFO 8756 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-10-04 18:50:07.101  INFO 8756 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-10-04 18:50:07.102  INFO 8756 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-10-04 18:50:07.102  INFO 8756 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-10-04 18:50:07.102  INFO 8756 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-10-04 18:50:07.102  INFO 8756 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-10-04 18:50:07.102  INFO 8756 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-10-04 18:50:07.102  INFO 8756 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-10-04 18:50:07.408  INFO 8756 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-10-04 18:50:07.412  INFO 8756 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2023-10-04 18:50:07.415  INFO 8756 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-10-04 18:50:07.420  INFO 8756 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1696438207419 with initial instances count: 2
+2023-10-04 18:50:07.423  INFO 8756 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MSALUMNOS with eureka with status UP
+2023-10-04 18:50:07.423  INFO 8756 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1696438207423, current=UP, previous=STARTING]
+2023-10-04 18:50:07.425  INFO 8756 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:01e7420a7076dd1c5f3a7599b8aca42b: registering service...
+2023-10-04 18:50:07.468  INFO 8756 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSALUMNOS/msalumnos:01e7420a7076dd1c5f3a7599b8aca42b - registration status: 204
+2023-10-04 18:50:07.476  INFO 8756 --- [restartedMain] e.c.a.alumnos.MsalumnosTApplication      : Started MsalumnosTApplication in 7.422 seconds (JVM running for 8.293)
+2023-10-04 18:50:08.004  INFO 8756 --- [RMI TCP Connection(5)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-04 18:50:08.005  INFO 8756 --- [RMI TCP Connection(5)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-04 18:50:08.007  INFO 8756 --- [RMI TCP Connection(5)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-10-04 18:50:50.953  WARN 8756 --- [http-nio-auto-1-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [feign.FeignException$InternalServerError: [500] during [GET] to [http://mscursos/curso/for-student/] [ICursoFeignClient#courseForStudent(Long)]: [Failed to convert value of type 'java.lang.String' to required type 'long'; nested exception is java.lang.NumberFormatException: For input string: "for-student"]]

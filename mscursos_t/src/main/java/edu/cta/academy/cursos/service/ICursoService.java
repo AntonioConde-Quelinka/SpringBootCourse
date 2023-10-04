@@ -28,4 +28,6 @@ public interface ICursoService {
 	
 	// Elimina un alumno de un curso
 	Optional<Curso> removeFromCourse(Alumno alumno, Long idCurso);
+	
+	Optional<Curso> courseForStudent(Long idAlumno);
 }

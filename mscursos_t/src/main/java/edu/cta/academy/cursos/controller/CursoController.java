@@ -129,7 +129,20 @@ public class CursoController {
 		}
 		return resp;
 	}
-
+	
+	// Curso en el que está un alumno
+	@GetMapping("/for-student/{idAlumno}")
+	public ResponseEntity<?> courseForStudent(@PathVariable Long idAlumno) 
+	{
+		ResponseEntity<?> resp = null;
+		var course = this.service.courseForStudent(idAlumno);
+		if (course.isPresent()) {
+			resp = ResponseEntity.ok(course.get());
+		} else {
+			resp = ResponseEntity.notFound().build();
+		}
+		return resp;
+	}
 	// Función para devolver un error 400 en caso de fallo de validación de Alumno
 	private ResponseEntity<?> generateCursoError(BindingResult br) {
 

@@ -78,4 +78,10 @@ public class CursoService implements ICursoService {
 		return course;
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public Optional<Curso> courseForStudent(Long idAlumno) {
+		return repo.courseForStudent(idAlumno);
+	}
+
 }

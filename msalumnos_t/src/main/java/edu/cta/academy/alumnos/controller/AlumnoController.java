@@ -339,4 +339,17 @@ public class AlumnoController  {
 		
 		return responseEntity;
 	}
+	
+	// Feign -> llamadas a otro end-point de otro ms de nuestra nube
+	@GetMapping("/{idAlumno}/curso-inscrito")
+	public ResponseEntity<?> getCursoAlumno(Long idAlumno) {
+		ResponseEntity<?> responseEntity = null;
+		var curso = this.service.getCursoAlumno(idAlumno);
+		if (curso.isPresent()) {
+			responseEntity = ResponseEntity.ok(curso.get());
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+		return responseEntity;
+	}
 }

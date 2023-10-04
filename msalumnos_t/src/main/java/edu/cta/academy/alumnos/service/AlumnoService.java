@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import edu.cta.academy.comun.entity.Alumno;
+import edu.cta.academy.comun.entity.Curso;
 //import edu.cta.academy.comun.entity.Alumno;
 import edu.dta.academy.model.FraseChiquito;
 
@@ -47,4 +48,7 @@ public interface AlumnoService {
 	
 	// No deberíamos hacerlo aqui, sino en un servicio/controller aparte
 	Optional<FraseChiquito> fraseAleatoriaChiquito();
+	
+	// Consumimos método del FeignClient
+	Optional<Curso> getCursoAlumno(Long idAlumno);
 }
