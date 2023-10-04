@@ -342,7 +342,7 @@ public class AlumnoController  {
 	
 	// Feign -> llamadas a otro end-point de otro ms de nuestra nube
 	@GetMapping("/{idAlumno}/curso-inscrito")
-	public ResponseEntity<?> getCursoAlumno(Long idAlumno) {
+	public ResponseEntity<?> getCursoAlumno(@PathVariable Long idAlumno) {
 		ResponseEntity<?> responseEntity = null;
 		var curso = this.service.getCursoAlumno(idAlumno);
 		if (curso.isPresent()) {
