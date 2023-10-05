@@ -19,6 +19,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.ParameterMode;
@@ -46,7 +48,7 @@ import javax.persistence.StoredProcedureParameter;
 				@StoredProcedureParameter(mode = ParameterMode.INOUT , type = Float.class , name ="edadmedia")
 			})
 })
-public class Alumno {
+public class Alumno  extends RepresentationModel<Alumno>{
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -43,6 +43,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 /**
  * Recibe HTTP Request y devuelve HTTP Responses
  */
@@ -351,5 +354,22 @@ public class AlumnoController  {
 			return ResponseEntity.notFound().build();
 		}
 		return responseEntity;
+	}
+	
+	// Ejemplo de Hateoas
+	@GetMapping("/hateoas")		// GET http://localhost:8081/alumno
+	public ResponseEntity<?> listarAlumnosHateoas() {
+		ResponseEntity<?> response = null;
+		Iterable<Alumno> resul = null;
+		
+		resul = service.consultarTodos();
+		for (Alumno a :resul)
+		{
+			a.add(linkTo(methodOn(AlumnoController.class).listarAlumno(a.getId())).withSelfRel());
+		}
+		
+		response = ResponseEntity.ok(resul);
+		
+		return response;
 	}
 }
